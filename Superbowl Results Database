@@ -67,18 +67,31 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,Cit
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,City,State) VALUES ('Jan 14 1968','II (2)','Green Bay Packers',33,'Oakland Raiders',14,'Bart Starr+','Orange Bowl','Miami','Florida');
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','Memorial Coliseum','Los Angeles','California');
 
---
+-- display all superbowl winners where Tom Brady was the MVP.
+
 SELECT Winner FROM superbowls WHERE MVP = 'Tom Brady';
+
+-- display all MVPs from superbowls that took place after 1970.
 
 SELECT MVP FROM superbowls WHERE Date > 1970;
 
+-- display all superbowl winners where the winning team scored more than 20 pts and the game took place in Florida.
+
 SELECT Winner FROM superbowls WHERE Winner_Pts > 20 AND State = 'Florida';
+
+-- display all losing team points from superbowls where the winner was the New England Patriots and the MVP was Tom Brady.
 
 SELECT Loser_Pts FROM superbowls WHERE Winner = 'New England Patriots' AND MVP = 'Tom Brady';
 
+-- display all winning team points from superbowls where the winner was either the Pittsburgh Stealers or the San Francisco 49ers.
+
 SELECT Winner_Pts FROM superbowls WHERE Winner = 'Pittsburgh Steelers' OR Winner = 'San Francisco 49ers';
 
+-- display the average points of winning teams from superbowls where the winning team had an average point total above 15 pts.
+
 SELECT Winner, AVG(Winner_Pts) AS avg_pts FROM superbowls GROUP BY Winner HAVING avg_pts > 15;
+
+-- display table that shows how many winning teams have earned which winner_grade based on the number of points they scored in a superbowl game. 
 
 SELECT COUNT (*),
 
