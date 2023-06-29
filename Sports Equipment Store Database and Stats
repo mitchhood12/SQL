@@ -1,0 +1,14 @@
+--Create a sports equipment store database
+
+CREATE TABLE equipment (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, sport TEXT, price INTEGER);
+
+INSERT INTO equipment VALUES (1, "helmets", 4, "football", 15);
+INSERT INTO equipment VALUES (2, "bats", 6, "baseball", 25);
+INSERT INTO equipment VALUES (3, "basketballs", 10, "basketball", 10);
+INSERT INTO equipment VALUES (4, "pucks", 25, "hockey", 5);
+
+--display the database ordered by price.
+SELECT * FROM equipment ORDER BY price;
+
+--which items have a quantity greater than 7 in stock?
+SELECT * FROM equipment WHERE quantity > 7 ORDER BY quantity;
